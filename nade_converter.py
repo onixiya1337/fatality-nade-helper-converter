@@ -23,6 +23,12 @@ def convert_json_to_text(json_file, text_file):
     with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
+    
+    # Log Loaded JSON structures
+    print("Loaded JSON structure:")
+    for map_id in data:
+        print(f"Map {map_id} keys: {list(data[map_id].keys())}")
+    
     output_lines = []
 
     throw_methods = {
@@ -37,6 +43,12 @@ def convert_json_to_text(json_file, text_file):
 
     for map_id, map_data in data.items():
         map_name = id_to_map_name.get(map_id, "unknown_map")
+        
+        # Check if grenades key exists
+        if "grenades" not in map_data:
+            print(f"Warning: Map {map_id} ({map_name}) doesn't have a 'grenades' key. Skipping.")
+            continue
+            
         for nade_id, nade_data in map_data["grenades"].items():
             grenade_type = nade_data["type"]
             name = nade_data.get("name", "unknown")
