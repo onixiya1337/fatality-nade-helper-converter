@@ -1,0 +1,3 @@
+A Python tool that converts [Jewel's nade helper](https://fatality.win/resources/helper-grenades-wallbangs-movement.6570/) file format to [riviello's nade helper](https://fatality.win/resources/%E2%9C%A8-%F0%9F%92%A3grenade-helper-cs2%F0%9F%92%A3-%F0%9F%8C%AA%EF%B8%8Fsilent-aim-update%F0%9F%8C%AA%EF%B8%8F.5694/) file format.
+
+Tested on [alacritty1337's nade list](https://github.com/alacritty1337/helper).
