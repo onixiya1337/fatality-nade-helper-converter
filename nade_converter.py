@@ -51,6 +51,8 @@ def convert_json_to_text(json_file, text_file):
             
         for nade_id, nade_data in map_data["grenades"].items():
             grenade_type = nade_data["type"]
+            if grenade_type == "smokegrenade":
+                grenade_type = "smoke"
             name = nade_data.get("name", "unknown")
             pos = nade_data["position"]
             view = nade_data["view_angle"]
@@ -66,7 +68,7 @@ def convert_json_to_text(json_file, text_file):
             method = throw_methods.get((jump, crouch, move_ticks > 0), "throw")
             delay = move_ticks * 0.05
 
-            line = f"{map_name},{pos['x']},{pos['y']},{pos['z']},{name},0.00,0.20,{view['x']},{view['y']},0.00,{method},{grenade_type},{delay:.2f}"
+            line = f"{map_name},{round(pos['x'], 2)},{round(pos['y'], 2)},{round(pos['z'], 2)},{name},0.00,0.20,{round(view['x'], 2)},{round(view['y'], 2)},0.00,{method},{grenade_type},{delay:.2f}"
             output_lines.append(line)
 
     with open(text_file, 'w', encoding='utf-8') as f:
