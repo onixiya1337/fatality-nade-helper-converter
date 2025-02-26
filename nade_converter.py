@@ -66,7 +66,7 @@ def convert_json_to_text(json_file, text_file):
             move_ticks = movement.get("move_ticks", 0)
 
             method = throw_methods.get((jump, crouch, move_ticks > 0), "throw")
-            delay = move_ticks * 0.05
+            delay = move_ticks * 0.015625
 
             line = f"{map_name},{round(pos['x'], 2)},{round(pos['y'], 2)},{round(pos['z'], 2)},{name},0.00,0.20,{round(view['x'], 2)},{round(view['y'], 2)},0.00,{method},{grenade_type},{delay:.2f}"
             output_lines.append(line)
